@@ -285,7 +285,18 @@ puts "======"
 puts "" 
 
 # Query the movies data and loop through the results to display the movies output.
-# TODO!
+
+studio = Studio.find_by({ "name" => "Warner Bros." })
+movies = Movie.where({ "studio_id" => studio["id"] })
+
+for movie in movies
+    title = movie["title"]
+    year = movie["year_released"]
+    rate = movie["rated"]
+    sname = studio["name"]
+
+    puts "#{title}  #{year}  #{rate}  #{sname}"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -294,4 +305,20 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+
+bbegins = Movie.find_by({ "name" => "Batman Begins" })
+dknight = Movie.find_by({ "name" => "the Dark Knight" })
+dkrises = Movie.find_by({ "name" => "the Dark Knight Rises" })
+
+roles = Movie.where({ "studio_id" => studio["id"] })
+
+roles = Role.all
+
+for role in roles
+    character = role["character_name"]
+    year = movie["year_released"]
+    rate = movie["rated"]
+    sname = studio["name"]
+    
+    puts "#{title}  #{year}  #{rate}  #{sname}"
+end
