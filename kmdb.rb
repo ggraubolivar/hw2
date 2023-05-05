@@ -77,14 +77,44 @@ Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 
+# Answer: Did so in the terminal!
+
 # Insert data into the database that reflects the sample data shown above.
+
+warner = Studio.new
+    warner["name"] = "Warner Bros."
+warner.save
+
+warner_id = warner["id"]
+
+bbegins = Movie.new 
+    bbegins["title"] = "Batman Begins"
+    bbegins["year_released"] = 2005
+    bbegins["rated"] = "PG-13"
+    bbegins["studio_id"] = warner_id
+bbegins.save
+
+dknight = Movie.new 
+    dknight["title"] = "The Dark Knight"
+    dknight["year_released"] = 2008
+    dknight["rated"] = "PG-13"
+    dknight["studio_id"] = warner_id
+dknight.save
+
+dkrises = Movie.new 
+    dkrises["title"] = "The Dark Knight Rises"
+    dkrises["year_released"] = 2008
+    dkrises["rated"] = "PG-13"
+    dkrises["studio_id"] = warner_id
+dkrises.save
+
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
-puts ""
+puts "" 
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
