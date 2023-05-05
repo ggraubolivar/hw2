@@ -306,19 +306,16 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 
-bbegins = Movie.find_by({ "name" => "Batman Begins" })
-dknight = Movie.find_by({ "name" => "the Dark Knight" })
-dkrises = Movie.find_by({ "name" => "the Dark Knight Rises" })
-
-roles = Movie.where({ "studio_id" => studio["id"] })
-
 roles = Role.all
 
 for role in roles
     character = role["character_name"]
-    year = movie["year_released"]
-    rate = movie["rated"]
-    sname = studio["name"]
+
+    movie = Movie.find_by({ "id" => role["movie_id"] })
+        title = movie["title"]
+
+    actor = Actor.find_by({ "id" => role["actor_id"] })
+        aname = actor["name"]
     
-    puts "#{title}  #{year}  #{rate}  #{sname}"
+    puts "#{title}  #{aname}  #{character}"
 end
