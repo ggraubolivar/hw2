@@ -319,3 +319,5 @@ for role in roles
     
     puts "#{title}  #{aname}  #{character}"
 end
+
+# All done! Couldn't figure out how to center everything.
